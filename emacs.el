@@ -1,13 +1,13 @@
 ;; Basic fiddly stuff
 
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(tool-bar-mode -1)
+(if window-system
+    (tool-bar-mode -1))
 (menu-bar-mode -1)
 (setq visible-bell 1)
 (load-theme 'tango-dark)
@@ -58,8 +58,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/ghub")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit-popup")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit/lisp")
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
+(if (require 'magit nil t)
+    (global-set-key (kbd "C-x g") 'magit-status))
 
 (with-eval-after-load 'info
   (info-initialize)
