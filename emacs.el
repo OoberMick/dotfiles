@@ -9,7 +9,15 @@
 (if window-system
     (tool-bar-mode -1))
 (menu-bar-mode -1)
-(setq visible-bell 1)
+(setq visible-bell t)
+
+;; The macOS visual bell is fugly
+(defun sane-visual-bell ()
+  "A sane visual bell."
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil 'invert-face 'mode-line))
+(setq ring-bell-function 'sane-visual-bell)
+
 (load-theme 'tango-dark)
 (setq inhibit-startup-message t)
 (column-number-mode 1)
@@ -60,3 +68,6 @@
 ;; Add MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
+;; Enable PlantUML mode for .puml files
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
