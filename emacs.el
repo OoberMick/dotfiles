@@ -1,9 +1,5 @@
 ;; Basic fiddly stuff
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
 
 (if window-system
@@ -24,8 +20,9 @@
 (setq-default show-trailing-whitespace t)
 
 ;; C stuff
+(setq tab-width 4)
 (setq c-default-style "bsd"
-      c-basic-offset 4)
+      c-basic-offset 'tab-width)
 
 ;; Case switch don't indent
 (add-hook 'c-mode-common-hook
@@ -71,3 +68,7 @@
 
 ;; Enable PlantUML mode for .puml files
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+(add-hook 'plantuml-mode-hook
+	  (lambda ()
+	    (setq-local indent-line-function 'indent-relative)
+	    (setq-local indent-tabs-mode nil)))
