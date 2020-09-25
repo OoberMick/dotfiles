@@ -20,9 +20,9 @@
 (setq-default show-trailing-whitespace t)
 
 ;; C stuff
-(setq tab-width 4)
+(setq-default tab-width 4)
 (setq c-default-style "bsd"
-      c-basic-offset 'tab-width)
+      c-basic-offset tab-width)
 
 ;; Case switch don't indent
 (add-hook 'c-mode-common-hook
@@ -45,8 +45,15 @@
                              (blink-matching-open))))
     (when matching-text (message matching-text))))
 (custom-set-variables
- '(package-selected-packages (quote (go-mode plantuml-mode ## dash)))
- '(plantuml-jar-path "/Applications/PlantUML.app/Contents/MacOS/plantuml.jar"))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+	(bug-hunter swift-mode typescript-mode magit go-mode plantuml-mode ## dash)))
+ '(plantuml-default-exec-mode (quote jar))
+ '(plantuml-jar-path "/Applications/plantuml.app/Contents/Java/plantuml.jar"))
 
 ;; Magit hacking for MacOS
 
@@ -68,7 +75,20 @@
 
 ;; Enable PlantUML mode for .puml files
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
-(add-hook 'plantuml-mode-hook
-	  (lambda ()
-	    (setq-local indent-line-function 'indent-relative)
-	    (setq-local indent-tabs-mode nil)))
+;; (add-hook 'plantuml-mode-hook
+;; 	  (lambda ()
+;; 	    (setq-local indent-line-function 'indent-relative)
+;; 	    (setq-local indent-tabs-mode nil)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(setq ispell-macos-name "/Users/migraham/.homebrew/bin/aspell")
+
+(if (file-exists-p ispell-macos-name)
+    (setq ispell-program-name ispell-macos-name))
+
+(setq ispell-dictionary "en_GB")
