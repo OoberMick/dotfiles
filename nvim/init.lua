@@ -24,6 +24,8 @@ vim.opt.showmode         = false                 -- Hide the default -- INSERT -
 vim.opt.autochdir        = true                  -- cwd follows file
 vim.opt.spelllang        = 'en_gb'               -- Set spell checking language
 vim.opt.scrolloff        = 8                     -- Start scrolling when we're 8 lines from the edge
+vim.opt.foldlevel        = 99
+vim.opt.foldlevelstart   = 99
 
 require('autocmds.init')
 require("config.lazy")
