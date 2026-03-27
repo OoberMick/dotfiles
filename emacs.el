@@ -54,15 +54,15 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(claude-code company copilot copilot-chat dash go-mode magit
-				 markdown-mode monet-mode multiple-cursors
-				 plantuml-mode rust-mode smex swift-mode
-				 typescript-mode))
+                 markdown-mode monet-mode multiple-cursors
+                 plantuml-mode rust-mode smex swift-mode
+                 typescript-mode))
  '(package-vc-selected-packages
    '((monet :url "https://github.com/stevemolitor/monet")
-	 (claude-code :url
-				  "https://github.com/stevemolitor/claude-code.el")
-	 (copilot :url "https://github.com/copilot-emacs/copilot.el"
-			  :branch "main")))
+     (claude-code :url
+                  "https://github.com/stevemolitor/claude-code.el")
+     (copilot :url "https://github.com/copilot-emacs/copilot.el"
+              :branch "main")))
  '(plantuml-default-exec-mode 'jar)
  '(plantuml-jar-path "/Applications/plantuml.app/Contents/Java/plantuml.jar"))
 
@@ -88,9 +88,9 @@
 ;; Enable PlantUML mode for .puml files
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 ;; (add-hook 'plantuml-mode-hook
-;; 	  (lambda ()
-;; 	    (setq-local indent-line-function 'indent-relative)
-;; 	    (setq-local indent-tabs-mode nil)))
+;;       (lambda ()
+;;         (setq-local indent-line-function 'indent-relative)
+;;         (setq-local indent-tabs-mode nil)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -115,8 +115,8 @@
 ;;             :rev :newest
 ;;             :branch "main")
 ;;   :bind (:map copilot-completion-map
-;; 		 ("M-<tab>" . 'copilot-accept-completion)
-;; 		 ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;;          ("M-<tab>" . 'copilot-accept-completion)
+;;          ("C-<tab>" . 'copilot-accept-completion-by-word)))
 ;; (add-hook 'prog-mode-hook 'copilot-mode)
 
 ;; ;; Co-Pilot Chat
