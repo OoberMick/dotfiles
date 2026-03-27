@@ -85,7 +85,7 @@ vim.g.clipboard = {
 -- Make whitespace visible
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = '»',
+  tab = '» ',
   space = '·',
   nbsp = '␣',
   extends = '⟩',
