@@ -1,7 +1,7 @@
 return {
-    'dasupradyumna/midnight.nvim',
+    'EdenEast/nightfox.nvim',
     lazy = false,
     config = function()
-        vim.cmd.colorscheme("midnight")
+        vim.cmd.colorscheme("carbonfox")
     end,
 }
