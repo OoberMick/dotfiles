@@ -68,3 +68,16 @@ vim.keymap.set('n', "<M-Up>", "<cmd>m-2<CR>", { desc = "move line one up without
 vim.keymap.set('n', "<M-Down>", "<cmd>m+1<CR>", { desc = "move line one down without touching registers" })
 vim.keymap.set('v', "<M-Up>", ":m '<-2<CR>gv", { desc = "move selection one up without touching registers" })
 vim.keymap.set('v', "<M-Down>", ":m '>+1<CR>gv", { desc = "move selection one up without touching registers" })
+
+-- Remote paste magic
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+    ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+    ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+  },
+}
