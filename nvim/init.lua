@@ -91,3 +91,9 @@ vim.opt.listchars = {
   extends = '⟩',
   precedes = '⟨'
 }
+
+-- This creates a highlight group called 'ExtraWhitespace' with a red background
+vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "#e06c75" })
+
+-- This matches whitespace at the end of a line and applies the highlight
+vim.fn.matchadd("ExtraWhitespace", [[\s\+$]])
