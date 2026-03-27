@@ -81,3 +81,13 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').paste '*',
   },
 }
+
+-- Make whitespace visible
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = '🡒 ',
+  space = '·',
+  nbsp = '␣',
+  extends = '⟩',
+  precedes = '⟨'
+}
