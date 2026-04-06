@@ -6,11 +6,13 @@ return {
         require('nightfox').setup({
             groups = {
                 carbonfox = {
-                    Normal = { bg = "#000000" }, -- Actually black
-                    Comment = { fg = "#a6a8aa" }, -- Lighter comments
+                    Normal = { bg = "#000000" },
+                    Comment = { fg = "#a6a8aa" },
+                    Whitespace = { fg = "#707070" },
                 },
             },
         })
+
         vim.cmd.colorscheme("carbonfox")
     end,
 }
