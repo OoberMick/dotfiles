@@ -47,12 +47,6 @@ vim.keymap.set('n', '<leader>fg', tb.live_grep, { desc = 'Telescope live grep' }
 vim.keymap.set('n', '<leader>fb', tb.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', tb.help_tags, { desc = 'Telescope help tags' })
 
--- vim.keymap.set('n', '<leader>p', function()
---     vim.opt.paste = not vim.opt.paste:get()
---     print("Paste mode: " .. tostring(vim.opt.paste:get()))
--- end, { desc = "Toggle paste mode" }
--- )
-
 -- Change 'BlinkCmpGhostText' to the colour of comments
 vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment", italic = true })
 
@@ -71,25 +65,25 @@ vim.keymap.set('v', "<M-Down>", ":m '>+1<CR>gv", { desc = "move selection one up
 
 -- Remote paste magic
 vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy '+',
-    ['*'] = require('vim.ui.clipboard.osc52').copy '*',
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste '+',
-    ['*'] = require('vim.ui.clipboard.osc52').paste '*',
-  },
+    name = 'OSC 52',
+    copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy '+',
+        ['*'] = require('vim.ui.clipboard.osc52').copy '*',
+    },
+    paste = {
+        ['+'] = require('vim.ui.clipboard.osc52').paste '+',
+        ['*'] = require('vim.ui.clipboard.osc52').paste '*',
+    },
 }
 
 -- Make whitespace visible
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = '» ',
-  space = '·',
-  nbsp = '␣',
-  extends = '⟩',
-  precedes = '⟨'
+    tab = '» ',
+    space = '·',
+    nbsp = '␣',
+    extends = '⟩',
+    precedes = '⟨'
 }
 
 -- This creates a highlight group called 'ExtraWhitespace' with a red background
